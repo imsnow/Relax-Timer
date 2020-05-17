@@ -1,3 +1,1 @@
-# Kotlin Multiplatform project
-
-Relax timer
+# Relax-Timer
