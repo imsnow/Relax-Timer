@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/buildSrc/buildSrc.iml" filepath="$PROJECT_DIR$/buildSrc/buildSrc.iml" group="relax_timer/buildSrc" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" group="relax_timer/common" />
+      <module fileurl="file://$PROJECT_DIR$/common/common_commonMain.iml" filepath="$PROJECT_DIR$/common/common_commonMain.iml" group="common" />
+      <module fileurl="file://$PROJECT_DIR$/common/common_commonTest.iml" filepath="$PROJECT_DIR$/common/common_commonTest.iml" group="common" />
+      <module fileurl="file://$PROJECT_DIR$/relax_timer.iml" filepath="$PROJECT_DIR$/relax_timer.iml" group="relax_timer" />
+    </modules>
+  </component>
+</project>
