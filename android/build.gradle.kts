@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.config.KotlinCompilerVersion
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -5,46 +7,37 @@ plugins {
 }
 
 android {
-    compileSdkVersion(29)
-
-    dataBinding {
-        isEnabled = true
-    }
-
-    dexOptions {
-        javaMaxHeapSize = "2g"
-    }
-
+    compileSdkVersion(Versions.compileSdk)
+    buildToolsVersion = Versions.buildToolsVersion
     defaultConfig {
-        applicationId = "com.elegant.android"
-        minSdkVersion(19)
-        targetSdkVersion(29)
+        applicationId = "ru.elegant.android"
+        minSdkVersion(Versions.minSdk)
+        targetSdkVersion(Versions.targetSdk)
 
         versionCode = 1
         versionName = "0.1.0"
 
         vectorDrawables.useSupportLibrary = true
-
+    }
+    packagingOptions {
+        exclude("META-INF/*.kotlin_module")
     }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
-        getByName("debug") {
-            isDebuggable = true
-            applicationIdSuffix = ".debug"
-        }
     }
 
-    packagingOptions {
-        exclude("META-INF/*.kotlin_module")
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${KotlinVersion.CURRENT}")
-    implementation("com.android.support:appcompat-v7:28.0.0")
-    implementation("com.android.support.constraint:constraint-layout:1.1.3")
+    implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
+    implementation(project(":common"))
+    implementation(Deps.appCompatX)
+    implementation(Deps.constraintlayout)
 }

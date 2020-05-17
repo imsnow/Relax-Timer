@@ -1,6 +1,3 @@
-
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-
 plugins {
     kotlin("multiplatform")
     //id("co.touchlab.native.cocoapods")
@@ -11,10 +8,10 @@ plugins {
 
 android {
     compileSdkVersion(Versions.compileSdk)
-//    defaultConfig {
-//        minSdkVersion(Versions.min_sdk)
-//        targetSdkVersion(Versions.target_sdk)
-//        versionCode = 1
-//        versionName = "1.0"
-//    }
+    defaultConfig {
+        minSdkVersion(Versions.minSdk)
+        targetSdkVersion(Versions.targetSdk)
+        versionCode = 1
+        versionName = "1.0"
+    }
 }
