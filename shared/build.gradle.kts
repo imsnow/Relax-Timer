@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
-    // id("co.touchlab.native.cocoapods")
+    id("co.touchlab.native.cocoapods")
     // id("kotlinx-serialization")
     id("com.android.library")
     // id("com.squareup.sqldelight")
@@ -20,7 +20,7 @@ android {
 
 kotlin {
     android()
-    // Revert to just ios() when gradle plugin can properly resolve it
+    //Revert to just ios() when gradle plugin can properly resolve it
     val onPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
     if (onPhone) {
         iosArm64("ios")
@@ -32,11 +32,27 @@ kotlin {
 
     version = "1.1"
 
+    sourceSets {
+        all {
+            languageSettings.apply {
+                useExperimentalAnnotation("kotlinx.coroutines.ExperimentalCoroutinesApi")
+            }
+        }
+    }
+
     sourceSets["commonMain"].dependencies {
         implementation(kotlin("stdlib-common", Versions.kotlin))
     }
 
     sourceSets["androidMain"].dependencies {
         implementation(kotlin("stdlib", Versions.kotlin))
+    }
+
+    cocoapodsext {
+        summary = "Common library for the Relax timer"
+        homepage = "https://github.com/imsnow/Relax-Timer"
+        framework {
+            isStatic = false
+        }
     }
 }

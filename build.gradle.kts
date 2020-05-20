@@ -6,6 +6,7 @@ buildscript {
     }
     dependencies {
         classpath(Deps.androidGradlePlugin)
+        classpath(Deps.cocoapodsext)
         classpath(kotlin("gradle-plugin", Versions.kotlin))
     }
 }
