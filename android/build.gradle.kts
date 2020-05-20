@@ -37,7 +37,7 @@ android {
 
 dependencies {
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
-    implementation(project(":common"))
+    implementation(project(":shared"))
     implementation(Deps.appCompatX)
     implementation(Deps.constraintlayout)
 }
