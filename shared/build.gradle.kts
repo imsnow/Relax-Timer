@@ -20,6 +20,7 @@ android {
 
 kotlin {
     android()
+    js()
     //Revert to just ios() when gradle plugin can properly resolve it
     val onPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
     if (onPhone) {
@@ -46,6 +47,10 @@ kotlin {
 
     sourceSets["androidMain"].dependencies {
         implementation(kotlin("stdlib", Versions.kotlin))
+    }
+
+    sourceSets["jsMain"].dependencies {
+        implementation(kotlin("stdlib-js"))
     }
 
     cocoapodsext {
