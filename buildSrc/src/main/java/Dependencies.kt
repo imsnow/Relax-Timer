@@ -6,8 +6,8 @@ object Versions {
     val kotlin = "1.3.72"
     val androidx_test = "1.2.0"
     val androidx_test_ext = "1.1.1"
-    const val androidGradlePlugin = "3.6.3"
-    val buildToolsVersion = "29.0.0"
+    const val androidGradlePlugin = "4.0.0"
+    val buildToolsVersion = "29.0.2"
     val junit = "4.13"
     val sqlDelight = "1.3.0"
     val ktor = "1.3.2"
@@ -17,6 +17,8 @@ object Versions {
     val koin = "3.0.0-alpha-2"
     val serialization = "0.20.0"
     val cocoapodsext = "0.9"
+    val kotlinFrontPlugin = "0.0.45"
+    val nodeJs = "10.11.0"
 }
 
 object Deps {
@@ -35,6 +37,7 @@ object Deps {
     val koinCore = "org.koin:koin-core:${Versions.koin}"
     val koinTest = "org.koin:koin-test:${Versions.koin}"
     val cocoapodsext = "co.touchlab:kotlinnativecocoapods:${Versions.cocoapodsext}"
+    val frontPlugin = "org.jetbrains.kotlin:kotlin-frontend-plugin:${Versions.kotlinFrontPlugin}"
 
 //    object AndroidXTest {
 //        val core = "androidx.test:core:${Versions.androidx_test}"
@@ -50,13 +53,13 @@ object Deps {
 //        val junit = "org.jetbrains.kotlin:kotlin-test-junit:${Versions.kotlin}"
 //    }
 
-//    object Coroutines {
-//        val common = "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Versions.coroutines}"
-//        val jdk = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
-//        val native = "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${Versions.coroutines}"
-//        val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
-//        val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
-//    }
+    object Coroutines {
+        val common = "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Versions.coroutines}"
+        val jdk = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+        val native = "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${Versions.coroutines}"
+        val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+        val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+    }
 
 //    object SqlDelight {
 //        val gradle = "com.squareup.sqldelight:gradle-plugin:${Versions.sqlDelight}"

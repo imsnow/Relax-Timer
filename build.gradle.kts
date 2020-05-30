@@ -3,11 +3,13 @@ buildscript {
         google()
         mavenCentral()
         jcenter()
+        maven(url = "https://dl.bintray.com/kotlin/kotlin-eap")
     }
     dependencies {
         classpath(Deps.androidGradlePlugin)
         classpath(Deps.cocoapodsext)
         classpath(kotlin("gradle-plugin", Versions.kotlin))
+//        classpath(Deps.frontPlugin)
     }
 }
 

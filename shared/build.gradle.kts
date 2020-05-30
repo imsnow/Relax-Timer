@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Versions.compileSdk)
+    compileSdkVersion(29)
     defaultConfig {
         minSdkVersion(Versions.minSdk)
         targetSdkVersion(Versions.targetSdk)
@@ -43,14 +43,26 @@ kotlin {
 
     sourceSets["commonMain"].dependencies {
         implementation(kotlin("stdlib-common", Versions.kotlin))
+        implementation(Deps.Coroutines.common)
     }
 
     sourceSets["androidMain"].dependencies {
         implementation(kotlin("stdlib", Versions.kotlin))
+        implementation(Deps.Coroutines.android)
     }
 
     sourceSets["jsMain"].dependencies {
         implementation(kotlin("stdlib-js"))
+    }
+
+    sourceSets["commonTest"].dependencies {
+        implementation(kotlin("test-common"))
+        implementation(kotlin("test-annotations-common"))
+    }
+
+    sourceSets["androidTest"].dependencies {
+        implementation(kotlin("test-common"))
+        implementation(kotlin("test-junit"))
     }
 
     cocoapodsext {
