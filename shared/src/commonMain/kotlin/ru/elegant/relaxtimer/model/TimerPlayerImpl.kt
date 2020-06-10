@@ -11,12 +11,16 @@ class TimerPlayerImpl(
     override fun start(onTick: (Long) -> Unit) {
         val startValue = 1000L
         val tick = 100L
-        launch {
+        println("hello start $scope")
+        val job = launch {
+            println("start time")
             repeat((startValue/tick).toInt()) {
                 delay(tick)
                 onTick(it.toLong())
             }
+            println("end time")
         }
+        println("hello job $job")
     }
 
     override fun pause() {

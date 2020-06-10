@@ -63,6 +63,7 @@ kotlin {
     sourceSets["androidTest"].dependencies {
         implementation(kotlin("test-common"))
         implementation(kotlin("test-junit"))
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2")
     }
 
     cocoapodsext {
