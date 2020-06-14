@@ -1,0 +1,16 @@
+PODS:
+  - shared (1.1)
+
+DEPENDENCIES:
+  - shared (from `/Users/mike/StudioProjects/relax_timer/shared`)
+
+EXTERNAL SOURCES:
+  shared:
+    :path: "/Users/mike/StudioProjects/relax_timer/shared"
+
+SPEC CHECKSUMS:
+  shared: 3e11c7abc644bceb2d0c86be8fe550fd220c3257
+
+PODFILE CHECKSUM: 14de95c114f78a3a266870300f614f816035f260
+
+COCOAPODS: 1.8.4

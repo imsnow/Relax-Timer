@@ -130,6 +130,39 @@ open class TimerPlayerTest(private val testRunner: TestUtils.TestRunner) {
     }
 
     /**
+     * Дефолтный таймер запускается с одним подписчиком.
+     * Через 30 секунд подключается второй.
+     * Второй подписчик должен получить Tick 30, DurationEnd, Stop
+     */
+    fun startTestAndLaterSecond() {
+        // when
+        val timerSetting = getDefaultTimerSettings()
+        val tickList = getTickListForSettings(timerSetting)
+        val secondTickList = tickList.subList(30, tickList.size)
+        val rightSequence = mutableListOf<TimerStatus>().apply {
+            addAll(secondTickList)
+            add(TimerStatus.DurationEnd)
+            add(TimerStatus.Stop)
+        }
+        val statusSequence2 = mutableListOf<TimerStatus>()
+        val onTimerCallback2 = object : OnTimerCallback {
+            override fun onStatus(status: TimerStatus) {
+                statusSequence2.add(status)
+            }
+        }
+        timerPlayer.setTimer(timerSetting = timerSetting)
+        // do
+        timerPlayer.start()
+        testRunner.advanceTimeBy(HALF_MINUTE)
+        timerPlayer.subscribeCallback(onTimerCallback2)
+        // verify
+        assertTrue { timerPlayer.isActive }
+        rightSequence.forEachIndexed { index, element ->
+            assertTrue { statusSequence2[index] == element }
+        }
+    }
+
+    /**
      * Настройки таймера: длительность 1 минута, тик 1 секунда, бесконечный режим
      * Таймер запускается
      * Должен быть вызваны методы [onTimerCallback]
