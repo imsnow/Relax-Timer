@@ -8,6 +8,8 @@ expect class TestUtils {
 
         fun <T> runTest(block: suspend () -> T)
 
+        fun clear()
+
         fun advanceTimeBy(delayTimeMillis: Long)
     }
 }

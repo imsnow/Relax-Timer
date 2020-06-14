@@ -58,12 +58,14 @@ kotlin {
     sourceSets["commonTest"].dependencies {
         implementation(kotlin("test-common"))
         implementation(kotlin("test-annotations-common"))
+        implementation("io.mockk:mockk-common:1.9.3")
     }
 
     sourceSets["androidTest"].dependencies {
         implementation(kotlin("test-common"))
         implementation(kotlin("test-junit"))
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2")
+        implementation("io.mockk:mockk:1.9.3")
     }
 
     cocoapodsext {

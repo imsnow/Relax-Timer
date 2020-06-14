@@ -13,6 +13,8 @@ actual class TestUtils {
             block: suspend () -> T
         ) = testCoroutineScope.runBlockingTest { block.invoke() }
 
+        actual fun clear() = testCoroutineScope.cleanupTestCoroutines()
+
         actual fun advanceTimeBy(delayTimeMillis: Long) {
             testCoroutineScope.advanceTimeBy(delayTimeMillis)
         }
